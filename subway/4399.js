@@ -118,8 +118,8 @@ var my4399UnityModule = (function() {
                     return this.link.href
                 }),
                 id: (function(requestURL) {
-                    return encodeURIComponent(requestURL)
-                }),
+  return encodeURIComponent(requestURL)
+}),
                 queue: [],
                 processQueue: (function() {
                     var self = this;
