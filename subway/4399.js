@@ -44,21 +44,16 @@ var my4399UnityModule = (function() {
                     if (!cache.override) return send.apply(self, sendArguments);
                     CachedXMLHttpRequest.log("'" + cache.requestURL + "' served from indexedDB cache (" + cache.response.byteLength + " bytes).");
                     if (xhr.onload) xhr.onload()
+                }
                 Object.defineProperty(self, "open", {
-  value: function(method, url, async) {
-    cache = {
-      method: method,
-      requestURL: CachedXMLHttpRequest.cache.requestURL(url),
-      async: async
-    };
-    return xhr.open.apply(xhr, arguments)
-  }
-});
-
+                    value: (function(method, url, async) {
+                        cache = {
+                            method: method,
+                            requestURL: CachedXMLHttpRequest.cache.requestURL(url),
                             async: async
                         };
                         return xhr.open.apply(xhr, arguments)
-                    }
+                    })
                 });
                 Object.defineProperty(self, "setRequestHeader", {
                     value: (function() {
@@ -118,8 +113,8 @@ var my4399UnityModule = (function() {
                     return this.link.href
                 }),
                 id: (function(requestURL) {
-  return encodeURIComponent(requestURL)
-}),
+                    return encodeURIComponent(requestURL)
+                }),
                 queue: [],
                 processQueue: (function() {
                     var self = this;
