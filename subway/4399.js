@@ -66,7 +66,7 @@ var my4399UnityModule = (function() {
 
                 // Define open() method
                 Object.defineProperty(self, "open", {
-                    value: function(method, url, async) {
+                    value: function(...) { ... }
                         cache = {
                             method: method,
                             requestURL: CachedXMLHttpRequest.cache.requestURL(url),
