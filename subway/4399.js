@@ -58,7 +58,7 @@ var my4399UnityModule = (function() {
                             async: async
                         };
                         return xhr.open.apply(xhr, arguments)
-                    })
+                    }
                 });
                 Object.defineProperty(self, "setRequestHeader", {
                     value: (function() {
